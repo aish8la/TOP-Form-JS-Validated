@@ -12,7 +12,57 @@ body {
 }
 
 form {
+    min-height: 70vh;
+    min-width: 70vh;
     background-color: #F5F0EB;
     padding: 20px 15px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #3D3B3C;
 }
+
+.form-input-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-input-div > label {
+    font-size: 1.3rem;
+    flex: 1;
+    font-weight: 600;
+}
+
+.form-input-div > input {
+    flex: 1;
+    font-size: 1.3rem;
+    padding: 3px 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+}
+
+input[type="submit"] {
+    background-color: #C49A6C;
+    border: #3D3B3C;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #A67C52;
+}
+
+div.form-btn-div {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+
