@@ -1,35 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
-</head>
-<body>
+  </head>
+  <body>
     <form action="POST" novalidate>
-        <div class="form-input-div">
-            <label for="email">Email: </label>
-            <input type="email" id="email">
+      <div class="form-input-div">
+        <label for="email">Email: </label>
+        <div class="input-div">
+          <input type="email" id="email" />
+          <span class="error"></span>
         </div>
-        <div class="form-input-div">
-            <label for="country">Country: </label>
-            <input type="text" id="country">
+      </div>
+      <div class="form-input-div">
+        <label for="country">Country: </label>
+        <div class="input-div">
+          <input type="text" id="country" />
+          <span class="error"></span>
         </div>
-        <div class="form-input-div">
-            <label for="zip-code">Zip Code: </label>
-            <input type="text" id="zip-code">
+      </div>
+      <div class="form-input-div">
+        <label for="zip-code">Zip Code: </label>
+        <div class="input-div">
+          <input type="text" id="zip-code" />
+          <span class="error"></span>
         </div>
-        <div class="form-input-div">
-            <label for="new-pass">New Password: </label>
-            <input type="password" id="new-pass">
+      </div>
+      <div class="form-input-div">
+        <label for="new-pass">New Password: </label>
+        <div class="input-div">
+          <input type="password" id="new-pass" />
+          <span class="error"></span>
         </div>
-        <div class="form-input-div">
-            <label for="confirm-pass">Confirm Password: </label>
-            <input type="password" id="confirm-pass">
+      </div>
+      <div class="form-input-div">
+        <label for="confirm-pass">Confirm Password: </label>
+        <div class="input-div">
+          <input type="password" id="confirm-pass" />
+          <span class="error"></span>
         </div>
-        <div class="form-btn-div">
-            <input type="submit">
-        </div>
+      </div>
+      <div class="form-btn-div">
+        <input type="submit" />
+      </div>
     </form>
-</body>
+  </body>
 </html>
