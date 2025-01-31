@@ -5,6 +5,7 @@ class UIElements {
         this.form = document.querySelector('form');
         this.passwordInputs = this.form.querySelectorAll('input.password');
         this.inputList = this.form.querySelectorAll('.form-input-div input');
+        this.formSubmit = this.form.querySelector('[type=submit]');
     }
 }
 
@@ -20,7 +21,6 @@ class ErrorFunctions {
 
     addError(element, errorMessage) {
         const errorElement = element.nextElementSibling;
-        console.log(errorElement);
             errorElement.classList.add("error-active");
             errorElement.textContent = errorMessage;
         }
@@ -53,14 +53,6 @@ class ErrorFunctions {
             this.missingValue(elementTwo);
         }
     }
-
-    submitForm(inputNodeList) {
-        inputNodeList.forEach(element => {
-            if(element.matches('[type=email]')) {
-                console.log("fdf")
-            }
-        });
-    }
 }
 
 class EventHandlers {
@@ -80,10 +72,46 @@ class EventHandlers {
         });
 
         this.elements.form.addEventListener("input", e => {
+            if(e.target.id === "country" || e.target.id === "zip-code" ) {
+                this.errorFunctions.missingValue(e.target);
+            }
+        })
+
+        this.elements.form.addEventListener("input", e => {
             if(e.target.classList.contains("password")) {
                 this.errorFunctions.matchPassword(this.elements.passwordInputs[0], this.elements.passwordInputs[1]);
             }
         })
+
+        this.elements.formSubmit.addEventListener("click", e => {
+
+            this.submitForm(e, this.elements.inputList);
+            e.preventDefault();
+        })
+    }
+
+    submitForm(e, inputNodeList) {
+        inputNodeList.forEach(element => {
+            if(element.id === "email") {
+                this.errorFunctions.checkEmail(element);
+                return;
+            }
+
+            if(element.id === "country" || element.id === "zip-code" ) {
+                this.errorFunctions.missingValue(element);
+                return;
+            }
+
+            if(element.classList.contains("password")) {
+                this.errorFunctions.matchPassword(this.elements.passwordInputs[0], this.elements.passwordInputs[1]);
+                return;
+            }
+        });
+        if(!this.elements.form.checkValidity()) {
+            e.preventDefault();
+            return;
+        }
+        alert("Form is filled correctly. Hi Five!");
     }
 }
 
