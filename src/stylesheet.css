@@ -54,7 +54,7 @@ form {
 
 input[type="submit"] {
     background-color: #C49A6C;
-    border: #3D3B3C;
+    border: none;
     border-radius: 10px;
     padding: 5px 15px;
     font-size: 1.3rem;
@@ -81,6 +81,20 @@ div.form-btn-div {
 
 .error.error-active {
     visibility: visible;
+}
+
+.form-input-div input:has(+ .error-active) {
+    border: 2px dashed red;
+}
+
+.form-input-div input:has(+ .error-active):focus {
+    border: none;
+    outline: 2px solid red;
+}
+
+.form-input-div input:valid {
+    border: none;
+    outline: 2px solid green;
 }
 
 
